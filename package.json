@@ -1,0 +1,30 @@
+{
+  "name": "api-services",
+  "version": "1.0.0",
+  "description": "Combining external api aervices to run in Google Cloud",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node -r dotenv/config src/server.js",
+    "dev": "nodemon -r dotenv/config src/server.js --trace-warnings",
+    "deploy": "gcloud functions deploy --runtime nodejs10 --trigger-http --source ./src cep-service",
+    "test": "mocha"
+  },
+  "author": "Maarten Coppens <maarten.coppens@amopromo.com.br>",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@google-cloud/logging": "^8.0.1",
+    "assert": "^2.0.0",
+    "dotenv": "^8.2.0",
+    "fastify": "^3.1.1",
+    "fastify-bearer-auth": "^5.0.1",
+    "firebase-admin": "^9.0.0",
+    "firebase-functions": "^3.8.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "sinon": "^9.0.2",
+    "supertest": "^4.0.2"
+  }
+}
